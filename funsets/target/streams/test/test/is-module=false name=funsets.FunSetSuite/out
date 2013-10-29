@@ -1,0 +1,12 @@
+[0m[[0minfo[0m] [0m[32mFunSetSuite:[0m[0m
+[0m[[0minfo[0m] [0m[32m- string take[0m[0m
+[0m[[0minfo[0m] [0m[32m- adding ints[0m[0m
+[0m[[0minfo[0m] [0m[32m- contains is implemented[0m[0m
+[0m[[0minfo[0m] [0m[32m- singletonSet(1), (2), (3) contain 1,2,3 respectively[0m[0m
+[0m[[0minfo[0m] [0m[32m- union contains all elements[0m[0m
+[0m[[0minfo[0m] [0m[32m- intersect contains only intersecting elements[0m[0m
+[0m[[0minfo[0m] [0m[32m- diff contains the difference between two sets[0m[0m
+[0m[[0minfo[0m] [0m[32m- filter satisfies predicate[0m[0m
+[0m[[0minfo[0m] [0m[32m- forall checks if all integers in a set adhere to predicate[0m[0m
+[0m[[0minfo[0m] [0m[32m- exist ensures that at least one element in Set s adheres to predicate[0m[0m
+[0m[[0minfo[0m] [0m[32m- map converts given Set into another[0m[0m

@@ -1,0 +1,5 @@
+package newton
+
+object pract {
+  println("Welcome to the Scala worksheet")
+}

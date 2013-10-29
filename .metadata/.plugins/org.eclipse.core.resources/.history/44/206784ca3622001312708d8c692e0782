@@ -1,0 +1,5 @@
+package newton
+
+object pract {
+ 1+1
+}
