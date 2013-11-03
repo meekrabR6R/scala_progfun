@@ -54,6 +54,46 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
+  test("block is standing") {
+    new Level1 {
+      val b1 = Block(Pos(1,2), Pos(1,2))
+      assert(b1.isStanding)
+    }
+  }
+
+  test("block is not standing") {
+    new Level1 {
+      val b1 = Block(Pos(1,2), Pos(2,2))
+      assert(!b1.isStanding)
+    }
+  }
+
+  test("block position is legal") {
+    new Level1 {
+      val b1 = Block(Pos(1,2), Pos(2,2))
+      assert(b1.isLegal)
+    }
+  }
+
+  test("block position is not legal") {
+    new Level1 {
+      val b1 = Block(Pos(2,0), Pos(3,0))
+      assert(!b1.isLegal)
+    }
+  }
+
+  test("Start block") {
+    new Level1 {
+      assert(startBlock === Block(Pos(1,1), Pos(1,1)))
+    }
+  }
+
+  test("Not Start block") {
+    new Level1 {
+      assert(startBlock != Block(Pos(2,1), Pos(2,1)))
+    }
+  }
+
   ignore("optimal solution for level 1") {
     new Level1 {
       assert(solve(solution) == Block(goal, goal))
