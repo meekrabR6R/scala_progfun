@@ -94,6 +94,59 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
+  test("block neighbors") {
+    new Level1 {
+      val b1 = Block(Pos(1,2), Pos(2,2))
+      val neighbors = List((Block(Pos(1,1),Pos(2,1)), Left), (Block(Pos(1,3),Pos(2,3)), Right),
+                           (Block(Pos(0,2),Pos(0,2)), Up), (Block(Pos(3,2),Pos(3,2)), Down))
+      assert(b1.neighbors == neighbors)
+    }
+  }
+
+  test("legal block neighbors") {
+    new Level1 {
+      val b1 = Block(Pos(2,0), Pos(2,0))
+      assert(b1.legalNeighbors == List((Block(Pos(2,1),Pos(2,2)), Right), (Block(Pos(0,0),Pos(1,0)), Up)))
+    }
+  }
+
+  test("is done 1") {
+    new Level1 {
+      assert(done(Block(Pos(4,7),Pos(4,7))))
+    }
+  }
+
+  test("is done 2") {
+    new Level1 {
+      assert(done(Block(Pos(3,7),Pos(4,7))))
+    }
+  }
+
+  test("is not done") {
+    new Level1 {
+      assert(!done(Block(Pos(2,7),Pos(3,7))))
+    }
+  }
+
+  test("updated history stream") {
+    new Level1 {
+      val b1 = Block(Pos(1,3),Pos(2,3))
+      val b2 = Block(Pos(1,1),Pos(1,1))
+      
+      val move2 = List(Left,Up)
+      val moveHistory = List(Right,Right,Down)
+      val neighborStream = Stream((Block(Pos(3,3),Pos(3,3)),Down::moveHistory),
+                                  (Block(Pos(1,4),Pos(2,4)),Right::moveHistory), 
+                                  (Block(Pos(1,2),Pos(2,2)),Left::moveHistory))
+      val neighborSet = Set(
+                          (Block(Pos(1,2),Pos(1,3)), List(Right,Left,Up)),
+                          (Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up))
+                        )
+      
+      assert(neighborsWithHistory(b2, move2).toSet === neighborSet) 
+    }
+  }
+
   ignore("optimal solution for level 1") {
     new Level1 {
       assert(solve(solution) == Block(goal, goal))
