@@ -130,20 +130,31 @@ class BloxorzSuite extends FunSuite {
 
   test("updated history stream") {
     new Level1 {
-      val b1 = Block(Pos(1,3),Pos(2,3))
-      val b2 = Block(Pos(1,1),Pos(1,1))
-      
-      val move2 = List(Left,Up)
-      val moveHistory = List(Right,Right,Down)
-      val neighborStream = Stream((Block(Pos(3,3),Pos(3,3)),Down::moveHistory),
-                                  (Block(Pos(1,4),Pos(2,4)),Right::moveHistory), 
-                                  (Block(Pos(1,2),Pos(2,2)),Left::moveHistory))
+      val b1 = Block(Pos(1,1),Pos(1,1))
+
+      val moves = List(Left,Up)
       val neighborSet = Set(
                           (Block(Pos(1,2),Pos(1,3)), List(Right,Left,Up)),
                           (Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up))
                         )
-      
-      assert(neighborsWithHistory(b2, move2).toSet === neighborSet) 
+      assert(neighborsWithHistory(b1, moves).toSet === neighborSet) 
+    }
+  }
+
+  test("only new neighbors") {
+    new Level1 {
+      val newNeighbors = newNeighborsOnly(
+                          Set(
+                            (Block(Pos(1,2),Pos(1,3)), List(Right,Left,Up)),
+                            (Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up))
+                          ).toStream,
+                          Set(Block(Pos(1,2),Pos(1,3)), Block(Pos(1,1),Pos(1,1)))
+                        )
+      val newNeighborsMatch = Set(
+                                (Block(Pos(2,1),Pos(3,1)), List(Down,Left,Up))
+                              ).toStream
+
+      assert(newNeighbors === newNeighborsMatch)
     }
   }
 
