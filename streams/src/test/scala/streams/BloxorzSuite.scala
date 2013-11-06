@@ -116,12 +116,6 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
-  test("is done 2") {
-    new Level1 {
-      assert(done(Block(Pos(3,7),Pos(4,7))))
-    }
-  }
-
   test("is not done") {
     new Level1 {
       assert(!done(Block(Pos(2,7),Pos(3,7))))
@@ -158,13 +152,14 @@ class BloxorzSuite extends FunSuite {
     }
   }
 
-  ignore("optimal solution for level 1") {
+  test("optimal solution for level 1") {
     new Level1 {
+      println(solve(solution))
       assert(solve(solution) == Block(goal, goal))
     }
   }
 
-  ignore("optimal solution length for level 1") {
+  test("optimal solution length for level 1") {
     new Level1 {
       assert(solution.length == optsolution.length)
     }

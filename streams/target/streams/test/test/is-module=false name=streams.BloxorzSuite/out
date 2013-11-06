@@ -10,9 +10,8 @@
 [0m[[0minfo[0m] [0m[32m- block neighbors[0m[0m
 [0m[[0minfo[0m] [0m[32m- legal block neighbors[0m[0m
 [0m[[0minfo[0m] [0m[32m- is done 1[0m[0m
-[0m[[0minfo[0m] [0m[32m- is done 2[0m[0m
 [0m[[0minfo[0m] [0m[32m- is not done[0m[0m
 [0m[[0minfo[0m] [0m[32m- updated history stream[0m[0m
 [0m[[0minfo[0m] [0m[32m- only new neighbors[0m[0m
-[0m[[0minfo[0m] [0m[33m- optimal solution for level 1 !!! IGNORED !!![0m[0m
-[0m[[0minfo[0m] [0m[33m- optimal solution length for level 1 !!! IGNORED !!![0m[0m
+[0m[[0minfo[0m] [0m[32m- optimal solution for level 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- optimal solution length for level 1[0m[0m
